@@ -6,7 +6,7 @@ import threading
 from api_secrets import API_KEY_LISTENNOTES, API_KEY_ASSEMBLYAI
 
 
-listennotes_episode_endpoint = 'https://listen-api.listennotes.com/api/v2/episodes/d9340828c1dc453c9350e82e3a1161ca?show_transcript=1'
+listennotes_episode_endpoint = 'https://listen-api.listennotes.com/api/v2/episodes/6d0ab3ad8d30443db4ea277b68159a51?show_transcript=1'
 headers_listennotes = {
   'X-ListenAPI-Key': API_KEY_LISTENNOTES,
 }
@@ -90,4 +90,4 @@ def pipeline(episode_id):
 
 
 if __name__ == '__main__':
-   pipeline("d9340828c1dc453c9350e82e3a1161ca")
+   pipeline("6d0ab3ad8d30443db4ea277b68159a51")
