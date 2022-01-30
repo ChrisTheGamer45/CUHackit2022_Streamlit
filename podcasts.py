@@ -6,9 +6,7 @@ import threading
 from api_secrets import API_KEY_LISTENNOTES, API_KEY_ASSEMBLYAI
 
 
-#this changes based on podcast
-listennotes_episode_endpoint = 'https://listen-api.listennotes.com/api/v2/episodes/f39e6f35513945d9a5e421269d95c69c?show_transcript=1'
-
+listennotes_episode_endpoint = 'https://listen-api.listennotes.com/api/v2/episodes/d9340828c1dc453c9350e82e3a1161ca?show_transcript=1'
 headers_listennotes = {
   'X-ListenAPI-Key': API_KEY_LISTENNOTES,
 }
@@ -82,20 +80,14 @@ def pipeline(episode_id):
     audio_url, thumbnail, podcast_title, episode_title = get_episode_audio_url(episode_id)
     # print(audio_url, thumbnail, podcast_title, episode_title)
     transcribe_id = transcribe(audio_url, auto_chapters=True)
-    
-    firstTimeThrough = True
     while True:
         result = poll(transcribe_id, audio_url=audio_url, thumbnail=thumbnail, podcast_title=podcast_title,
                   episode_title=episode_title)
         if result:
             break
-        if (firstTimeThrough == True):
-            print("Summary in progress.")
-            firstTimeThrough = False
-        else:
-            print(".")
+        #print("Summary in progress")
+        #time.sleep(60)
 
 
 if __name__ == '__main__':
-   #this changes based on podcast
-   pipeline("f39e6f35513945d9a5e421269d95c69c")
+   pipeline("d9340828c1dc453c9350e82e3a1161ca")
