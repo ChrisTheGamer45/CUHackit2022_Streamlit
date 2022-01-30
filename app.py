@@ -26,19 +26,7 @@ def get_clean_summary(chapters):
         seconds = int((start_ms / 1000) % 60)
         minutes = int((start_ms / (1000 * 60)) % 60)
         hours = int((start_ms / (1000 * 60 * 60)) % 24)
-        
-        '''
-        chapterHyperLink = "https://www.listennotes.com/podcasts/"
-        for item in podcast_title:
-            chapterHyperLink += item.lower()
-            chapterHyperLink += "-"
-        chapterHyperLink = chapterHyperLink[:-1]
-        chapterHyperLink += "/"
-        for item in episode_title:
-            chapterHyperLink += item.lower()
-            chapterHyperLink += "-"
-        chapterHyperLink += str(seconds) + "/mohnish-pabrai-lecture-at-uX40PI8klFM//"
-        '''
+
         if hours > 0:
             txt += 'Chapter '+str(chapterCounter)+f' Timestamp: {hours:02d}:{minutes:02d}:{seconds:02d}'
         else:
